@@ -1,0 +1,30 @@
+<ion-header>
+  <ion-navbar color="primary">
+    <ion-title>{{lista.titulo}}</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+
+  <ion-list>
+    <ion-item>
+      <ion-label floating>Nuevo check</ion-label>
+      <ion-input [(ngModel)]="nombreItem" type="text" (keyup.enter)="agregarItem()"></ion-input>
+    </ion-item>
+
+  </ion-list>
+  <ion-list>
+    <ion-item-sliding class="animated fadeInDown" *ngFor="let item of lista.items;let i = index">
+      <button (click)="alternarEstadoTarea(item)" ion-item detail-none>
+        <ion-icon *ngIf="item.completado" name="checkbox-outline" item-start></ion-icon>
+        <ion-icon *ngIf="!item.completado" name="square-outline" item-start></ion-icon>
+        {{item.desc}}
+      </button>
+      <ion-item-options side="right">
+        <button (click)="borrar(i)" icon-only ion-button color="danger">
+          <ion-icon name="close"></ion-icon>
+        </button>
+      </ion-item-options>
+    </ion-item-sliding>
+  </ion-list>
+</ion-content>
