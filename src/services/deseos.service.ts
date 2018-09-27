@@ -13,6 +13,13 @@ export class DeseosService {
     this.listas.push(lista);
     this.guardadStorage();
   }
+
+  borrarLista(lista: Lista) {
+    this.listas = this.listas.filter(listaIterable => {
+      return listaIterable !== lista;
+    });
+    this.guardadStorage();
+  }
   guardadStorage() {
     localStorage.setItem('data', JSON.stringify(this.listas));
   }

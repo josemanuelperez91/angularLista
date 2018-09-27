@@ -14,12 +14,7 @@ export class PendientesPage {
     private NavController: NavController,
     private alertController: AlertController
   ) {}
-  listaSeleccionada(lista: Lista) {
-    this.NavController.push(AgregarPage, {
-      titulo: lista.titulo,
-      lista: lista
-    });
-  }
+
 
   agregarLista() {
     // this.NavController.push(AgregarPage);
